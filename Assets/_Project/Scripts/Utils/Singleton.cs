@@ -35,8 +35,8 @@ namespace Game.Scripts
             {
                 _instance = this as T;
 
-                Setup();
                 DontDestroyOnLoad(gameObject);
+                Setup();
 
                 Application.quitting += HandleApplicationQuitting;
             }

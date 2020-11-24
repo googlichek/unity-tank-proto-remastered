@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Scripts.Managing
+namespace Game.Scripts
 {
+    /// <summary>
+    /// Sub-components of game objects should be inherited from this.
+    /// </summary>
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private GameObject _rewired = null;
@@ -13,14 +16,20 @@ namespace Game.Scripts.Managing
         private readonly List<ITick> _normalPriorityTicks = new List<ITick>();
         private readonly List<ITick> _highPriorityTicks = new List<ITick>();
 
+        private InputWrapper _inputWrapper;
+
         private int _instanceCounter;
         private int _tick;
+
+        public InputWrapper inputWrapper => _inputWrapper;
 
         public int Tick => _tick;
 
         protected override void Setup()
         {
             base.Setup();
+
+            _inputWrapper = GetComponent<InputWrapper>();
         }
 
         private void OnEnable()
