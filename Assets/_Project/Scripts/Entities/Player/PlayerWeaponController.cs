@@ -14,11 +14,8 @@ namespace Game.Scripts
         [Space]
 
         [SerializeField] [Range(0, 1)] private float _weaponChangeDuration = 0.5f;
-        [SerializeField] [Range(0, 2)] private float _primaryWeaponFireDelay = 0.25f;
-        [SerializeField] [Range(0, 2)] private float _secondaryWeaponFireDelay = 1f;
 
         [SerializeField] private Ease _changeEase = Ease.Linear;
-        [SerializeField] private Ease _scaleEase = Ease.Linear;
 
         private Weapons _currentWeapon = Weapons.None;
 
