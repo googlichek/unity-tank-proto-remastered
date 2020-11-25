@@ -15,6 +15,11 @@ namespace Game.Scripts
 
         public float Armor => _armor;
 
+        public override void Enable()
+        {
+            _health = _maxHealth;
+        }
+
         public void Damage(float value)
         {
             _health = Mathf.Clamp(_health - (1 - _armor) * value, 0, _maxHealth);

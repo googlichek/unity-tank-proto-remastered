@@ -5,6 +5,8 @@ namespace Game.Scripts
 {
     public class PoolManager : TickBehaviour
     {
+        [SerializeField] private Transform _root;
+
         private readonly List<IResource> _pooledResources = new List<IResource>();
         private readonly List<IResource> _wannabePooledResources = new List<IResource>();
 
@@ -43,7 +45,7 @@ namespace Game.Scripts
             {
                 var entity = _wannabePooledResources[i];
 
-                entity.GameObject.transform.SetParent(transform, false);
+                entity.GameObject.transform.SetParent(_root, false);
                 entity.GameObject.transform.localPosition = transform.localPosition;
                 entity.GameObject.transform.localRotation = transform.localRotation;
                 entity.GameObject.SetActive(false);

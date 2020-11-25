@@ -19,6 +19,8 @@ namespace Game.Scripts
         private InputWrapper _inputWrapper;
         private PoolManager _poolManager;
         private SceneLoadingManager _sceneLoadingManager;
+        private ScoreManager _scoreManager;
+        private UIManager _uiManager;
 
         private int _instanceCounter;
         private int _tick;
@@ -26,6 +28,8 @@ namespace Game.Scripts
         public InputWrapper InputWrapper => _inputWrapper;
         public PoolManager PoolManager => _poolManager;
         public SceneLoadingManager SceneLoadingManager => _sceneLoadingManager;
+        public ScoreManager ScoreManager => _scoreManager;
+        public UIManager UIManager => _uiManager;
 
         public int Tick => _tick;
 
@@ -36,6 +40,8 @@ namespace Game.Scripts
             _inputWrapper = GetComponent<InputWrapper>();
             _poolManager = GetComponent<PoolManager>();
             _sceneLoadingManager = GetComponent<SceneLoadingManager>();
+            _scoreManager = GetComponent<ScoreManager>();
+            _uiManager = GetComponent<UIManager>();
         }
 
         private void OnEnable()
