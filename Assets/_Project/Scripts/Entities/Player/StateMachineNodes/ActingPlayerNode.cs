@@ -27,6 +27,15 @@
             if (!Owner.WeaponController.IsWeaponInteractionEnabled)
                 return;
 
+            if (GameManager.Instance.InputWrapper.IsShootHeld)
+            {
+                Owner.WeaponController.Shoot();
+                Owner.AudioController.PlayClip(
+                    Owner.WeaponController.CurrentWeapon == Weapons.Primary
+                        ? Owner.AudioController.PrimaryShot
+                        : Owner.AudioController.SecondaryShot);
+            }
+
             if (GameManager.Instance.InputWrapper.IsSwitchLeftPressed)
             {
                 Owner.WeaponController.RotateCylinder(false);

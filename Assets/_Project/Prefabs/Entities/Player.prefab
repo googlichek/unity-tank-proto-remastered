@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f20a99041bfc5649a929afae02eb414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 15
+  _movementSpeed: 5
   _rotationSpeed: 100
   _castHeight: 1
   _rayDistance: 4
@@ -545,11 +545,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cylinder: {fileID: 6267990572831300157}
   _projectileStartPosition: {fileID: 6267990571340641842}
+  _projectileLight: {fileID: 4087761758186129138, guid: 794a2d6e066af1841ae20f2684f0fd5c, type: 3}
+  _projectileHeavy: {fileID: 4087761758186129138, guid: e43a34ff764e29e4796e7e9488b1cdb9, type: 3}
   _weaponChangeDuration: 0.5
-  _primaryWeaponFireDelay: 0.25
-  _secondaryWeaponFireDelay: 1
   _changeEase: 27
-  _scaleEase: 1
 --- !u!114 &8588343060610867353
 MonoBehaviour:
   m_ObjectHideFlags: 0

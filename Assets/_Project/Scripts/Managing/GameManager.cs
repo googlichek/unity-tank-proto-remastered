@@ -17,11 +17,13 @@ namespace Game.Scripts
         private readonly List<ITick> _highPriorityTicks = new List<ITick>();
 
         private InputWrapper _inputWrapper;
+        private PoolManager _poolManager;
 
         private int _instanceCounter;
         private int _tick;
 
         public InputWrapper InputWrapper => _inputWrapper;
+        public PoolManager PoolManager => _poolManager;
 
         public int Tick => _tick;
 
@@ -30,6 +32,7 @@ namespace Game.Scripts
             base.Setup();
 
             _inputWrapper = GetComponent<InputWrapper>();
+            _poolManager = GetComponent<PoolManager>();
         }
 
         private void OnEnable()

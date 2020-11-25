@@ -244,6 +244,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6267990571340641842, guid: 96e01b219ce846940b0b3b9fd9676b16, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6267990571944428262, guid: 96e01b219ce846940b0b3b9fd9676b16, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -311,5 +315,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f686fdd16833a804f9c8f22e662d545f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 300
+  _maxHealth: 150
   _armor: 0.5
