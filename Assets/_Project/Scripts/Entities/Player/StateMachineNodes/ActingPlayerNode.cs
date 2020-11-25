@@ -8,6 +8,8 @@
 
         protected override void UpdateNextState()
         {
+            if (Owner.HealthController.Health <= 0)
+                NextState = States.Dead;
         }
 
         protected override void UpdateNodeState()

@@ -12,6 +12,7 @@
 
         protected override void UpdateNodeState()
         {
+            GameManager.Instance.SceneLoadingManager.LoadScene((int)Scenes.End);
         }
     }
 }
