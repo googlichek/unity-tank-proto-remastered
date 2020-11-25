@@ -21,7 +21,7 @@ namespace Game.Scripts
         private int _instanceCounter;
         private int _tick;
 
-        public InputWrapper inputWrapper => _inputWrapper;
+        public InputWrapper InputWrapper => _inputWrapper;
 
         public int Tick => _tick;
 

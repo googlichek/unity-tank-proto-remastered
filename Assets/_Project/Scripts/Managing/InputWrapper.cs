@@ -4,25 +4,12 @@ namespace Game.Scripts
 {
     public class InputWrapper : TickBehaviour
     {
-        private Player _player;
+        private Rewired.Player _player;
 
         private int _playerId = 0;
 
-        private bool _isUpPressed;
-        private bool _isUpReleased;
-        private bool _isUpHeld;
-
-        private bool _isDownPressed;
-        private bool _isDownReleased;
-        private bool _isDownHeld;
-
-        private bool _isLeftPressed;
-        private bool _isLeftReleased;
-        private bool _isLeftHeld;
-        
-        private bool _isRightPressed;
-        private bool _isRightReleased;
-        private bool _isRightHeld;
+        private float _horizontal;
+        private float _vertical;
 
         private bool _isSwitchLeftPressed;
         private bool _isSwitchLeftReleased;
@@ -38,21 +25,8 @@ namespace Game.Scripts
 
         private bool _isTimeToReset;
 
-        public bool IsUpPressed => _isUpPressed;
-        public bool IsUpReleased => _isUpReleased;
-        public bool IsUpHeld => _isUpHeld;
-
-        public bool IsDownPressed => _isDownPressed;
-        public bool IsDownReleased => _isDownReleased;
-        public bool IsDownHeld => _isDownHeld;
-
-        public bool IsLeftPressed => _isLeftPressed;
-        public bool IsLeftReleased => _isLeftReleased;
-        public bool IsLeftHeld => _isLeftHeld;
-
-        public bool IsRightPressed => _isRightPressed;
-        public bool IsRightReleased => _isRightReleased;
-        public bool IsRightHeld => _isRightHeld;
+        public float Horizontal => _horizontal;
+        public float Vertical => _vertical;
 
         public bool IsSwitchLeftPressed => _isSwitchLeftPressed;
         public bool IsSwitchLeftReleased => _isSwitchLeftReleased;
@@ -70,16 +44,22 @@ namespace Game.Scripts
         {
             base.Init();
 
+            priority = TickPriority.High;
+
             _player = ReInput.players.GetPlayer(_playerId);
         }
 
         public override void PhysicsTick()
         {
+            base.PhysicsTick();
+
             _isTimeToReset = true;
         }
 
         public override void Tick()
         {
+            base.Tick();
+
             ResetInput();
 
             _isTimeToReset = false;
@@ -92,21 +72,8 @@ namespace Game.Scripts
             if (!_isTimeToReset)
                 return;
 
-            _isUpPressed = false;
-            _isUpReleased = false;
-            _isUpHeld = false;
-
-            _isDownPressed = false;
-            _isDownReleased = false;
-            _isDownHeld = false;
-            
-            _isUpPressed = false;
-            _isUpReleased = false;
-            _isUpHeld = false;
-
-            _isDownPressed = false;
-            _isDownReleased = false;
-            _isDownHeld = false;
+            _horizontal = 0;
+            _vertical = 0;
 
             _isSwitchLeftPressed = false;
             _isSwitchLeftReleased = false;
@@ -123,21 +90,8 @@ namespace Game.Scripts
 
         private void HandleInput()
         {
-            _isUpPressed = _isUpPressed || _player.GetButtonDown(InputActions.Up);
-            _isUpReleased = _isUpReleased || _player.GetButtonUp(InputActions.Up);
-            _isUpHeld = _isUpHeld || _player.GetButton(InputActions.Up);
-
-            _isDownPressed = _isDownPressed || _player.GetButtonDown(InputActions.Down);
-            _isDownReleased = _isDownReleased || _player.GetButtonUp(InputActions.Down);
-            _isDownHeld = _isDownHeld || _player.GetButton(InputActions.Down);
-
-            _isLeftPressed = _isLeftPressed || _player.GetButtonDown(InputActions.Left);
-            _isLeftReleased = _isLeftReleased || _player.GetButtonUp(InputActions.Left);
-            _isLeftHeld = _isLeftHeld || _player.GetButton(InputActions.Left);
-
-            _isRightPressed = _isRightPressed || _player.GetButtonDown(InputActions.Right);
-            _isRightReleased = _isRightReleased || _player.GetButtonUp(InputActions.Right);
-            _isRightHeld = _isRightHeld || _player.GetButton(InputActions.Right);
+            _horizontal += _player.GetAxis(InputActions.Horizontal);
+            _vertical += _player.GetAxis(InputActions.Vertical);
 
             _isSwitchLeftPressed = _isSwitchLeftPressed || _player.GetButtonDown(InputActions.SwitchLeft);
             _isSwitchLeftReleased = _isSwitchLeftReleased || _player.GetButtonUp(InputActions.SwitchLeft);

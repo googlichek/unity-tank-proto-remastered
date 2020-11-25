@@ -204,7 +204,10 @@ MonoBehaviour:
       _startPlaying: 1
       _defaultJoystickMaps: []
       _defaultMouseMaps: []
-      _defaultKeyboardMaps: []
+      _defaultKeyboardMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 1
@@ -219,38 +222,20 @@ MonoBehaviour:
         _ruleSets: []
     actions:
     - _id: 1
-      _name: Up
-      _type: 1
-      _descriptiveName: Up
-      _positiveDescriptiveName: 
-      _negativeDescriptiveName: 
-      _behaviorId: 0
-      _userAssignable: 1
-      _categoryId: 1
-    - _id: 2
-      _name: Down
-      _type: 1
-      _descriptiveName: Down
-      _positiveDescriptiveName: 
-      _negativeDescriptiveName: 
+      _name: Horizontal
+      _type: 0
+      _descriptiveName: Horizontal
+      _positiveDescriptiveName: Horizontal+
+      _negativeDescriptiveName: Horizontal-
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
     - _id: 3
-      _name: Left
-      _type: 1
-      _descriptiveName: Left
-      _positiveDescriptiveName: 
-      _negativeDescriptiveName: 
-      _behaviorId: 0
-      _userAssignable: 1
-      _categoryId: 1
-    - _id: 4
-      _name: Right
-      _type: 1
-      _descriptiveName: Right
-      _positiveDescriptiveName: 
-      _negativeDescriptiveName: 
+      _name: Vertical
+      _type: 0
+      _descriptiveName: Vertical
+      _positiveDescriptiveName: Vertical+
+      _negativeDescriptiveName: Vertical-
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
@@ -297,7 +282,7 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 
       - categoryId: 1
-        actionIds: 01000000020000000300000004000000050000000600000007000000
+        actionIds: 0100000003000000050000000600000007000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -356,7 +341,7 @@ MonoBehaviour:
       customControllerUid: 0
       actionElementMaps:
       - _actionCategoryId: 0
-        _actionId: 1
+        _actionId: 3
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
@@ -367,29 +352,29 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 2
-        _elementType: 1
-        _elementIdentifierId: -1
-        _axisRange: 0
-        _invert: 0
-        _axisContribution: 0
-        _keyboardKeyCode: 115
-        _modifierKey1: 0
-        _modifierKey2: 0
-        _modifierKey3: 0
-      - _actionCategoryId: 0
         _actionId: 3
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
         _invert: 0
-        _axisContribution: 0
+        _axisContribution: 1
+        _keyboardKeyCode: 115
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 1
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 1
         _keyboardKeyCode: 97
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 4
+        _actionId: 1
         _elementType: 1
         _elementIdentifierId: -1
         _axisRange: 0
