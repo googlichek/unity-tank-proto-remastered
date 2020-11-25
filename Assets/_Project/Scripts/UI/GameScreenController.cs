@@ -3,19 +3,12 @@ using UnityEngine.UI;
 
 namespace Game.Scripts
 {
-    public class HUDController : TickBehaviour
+    public class GameScreenController : TickBehaviour
     {
         [SerializeField] private Text _healthText = null;
         [SerializeField] private Text _scoreText = null;
 
         private PlayerController _player;
-
-        public override void Enable()
-        {
-            base.Enable();
-
-            _player = FindObjectOfType<PlayerController>();
-        }
 
         public override void Tick()
         {

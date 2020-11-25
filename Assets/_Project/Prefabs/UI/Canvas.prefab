@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7546861050288178078}
   - component: {fileID: 9108937311450153240}
   - component: {fileID: 1931750185221416254}
+  - component: {fileID: 2998205891827803734}
   m_Layer: 5
   m_Name: EndScreen
   m_TagString: Untagged
@@ -90,6 +91,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2998205891827803734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716191533753847231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344d0c0c3f233774e8a8095e96080aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreText: {fileID: 1130019435930697353}
 --- !u!1 &3898874351432882824
 GameObject:
   m_ObjectHideFlags: 0
