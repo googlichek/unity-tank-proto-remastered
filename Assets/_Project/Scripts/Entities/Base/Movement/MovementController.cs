@@ -5,9 +5,14 @@ namespace Game.Scripts
     public class MovementController : TickComponent, IMovement
     {
         [Header("Movement Variables")]
-
         [SerializeField] [Range(0, 100)] private float _movementSpeed = 0f;
         [SerializeField] [Range(0, 100)] private float _rotationSpeed = 0f;
+
+        [Header("Obstacle Detection Variables")]
+        [SerializeField] [Range(0, 3)] private float _castHeight = 1;
+        [SerializeField] [Range(0, 10)] private float _rayDistance = 4;
+        [SerializeField] [Range(0, 1)] private float _sphereRadius = 0.5f;
+        [SerializeField] private LayerMask _layerMask = LayerMask.GetMask();
 
         public float MovementSpeed => _movementSpeed;
         public float RotationSpeed => _rotationSpeed;
@@ -18,7 +23,8 @@ namespace Game.Scripts
             if (offset.IsEqual(Vector3.zero))
                 return;
 
-            transform.Translate(offset);
+            if (CheckIfMovementIsPossible(value))
+                transform.Translate(offset);
         }
 
         public void Rotate(float value)
@@ -29,6 +35,16 @@ namespace Game.Scripts
                 return;
 
             transform.Rotate(offset);
+        }
+
+        private bool CheckIfMovementIsPossible(float deltaZ)
+        {
+            var rayOrigin = new Vector3(transform.position.x, _castHeight, transform.position.z);
+
+            var ray = deltaZ < 0 ? new Ray(rayOrigin, -transform.forward) : new Ray(rayOrigin, transform.forward);
+
+            var isHit = Physics.SphereCast(ray, _sphereRadius, out var hitTarget, _rayDistance, _layerMask);
+            return !isHit || !(hitTarget.distance <= _rayDistance);
         }
     }
 }

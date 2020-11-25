@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6741246535478632214}
   - component: {fileID: 7511691594305160066}
   - component: {fileID: 7216214285343307477}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5923101926883120218}
   - component: {fileID: 6518648456449712114}
   - component: {fileID: 1477845263335466145}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 8093097203429874683}
   - component: {fileID: 6259120622331174337}
   - component: {fileID: 5139924393660616658}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 7155011411109210181}
   - component: {fileID: 3862585722914975026}
   - component: {fileID: 3892575332889049057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 1400153792724663361}
   - component: {fileID: 8212734788579573387}
   - component: {fileID: 1876721760608204171}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8686061801398454298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
