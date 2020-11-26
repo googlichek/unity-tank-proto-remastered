@@ -12,5 +12,10 @@ namespace Game.Scripts
         {
             return (a - b).sqrMagnitude <= EqualityThreshold;
         }
+
+        public static bool HasLayer(this LayerMask layerMask, int layer)
+        {
+            return (layerMask & (1 << layer)) != 0;
+        }
     }
 }

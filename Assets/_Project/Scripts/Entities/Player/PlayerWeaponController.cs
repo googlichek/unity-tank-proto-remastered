@@ -81,7 +81,7 @@ namespace Game.Scripts
 
         private void SpawnProjectile(Projectile projectilePrefab)
         {
-            var resource = GameManager.Instance.PoolManager.Spawn(projectilePrefab, null, _projectileStartPosition.position, Quaternion.identity);
+            var resource = GameManager.Instance.PoolManager.Spawn(projectilePrefab, GameManager.Instance.PoolManager.Root, _projectileStartPosition.position, Quaternion.identity);
             var projectile = resource.GameObject.GetComponent<Projectile>();
             projectile.Init(id, transform.forward);
 

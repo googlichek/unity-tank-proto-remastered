@@ -10,6 +10,8 @@ namespace Game.Scripts
         private readonly List<IResource> _pooledResources = new List<IResource>();
         private readonly List<IResource> _wannabePooledResources = new List<IResource>();
 
+        public Transform Root => _root;
+
         public override void Init()
         {
             base.Init();

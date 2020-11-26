@@ -8,6 +8,10 @@ namespace Game.Scripts
 
         [Space]
 
+        [SerializeField] private LayerMask _layerMask = LayerMask.GetMask();
+
+        [Space]
+
         [SerializeField] [Range(0, 500)] private int _damage = 50;
 
         [Space]
@@ -16,6 +20,7 @@ namespace Game.Scripts
         
         [Space]
 
+        [SerializeField] [Range(0, 10)] private float _totalLifeTime = 5f;
         [SerializeField] [Range(0, 10)] private float _lifeTimeAfterHit = 0.3f;
         [SerializeField] [Range(0, 10)] private float _nextSpawnDelay = 0.25f;
 
@@ -24,13 +29,14 @@ namespace Game.Scripts
 
         private int _ownerId;
 
+        private float _creationTime;
         private float _lifeTimeEndTime;
 
         private bool _isHit;
 
         public GameObject GameObject => gameObject;
         public ResourceType Type => _type;
-        public bool IsValid => !_isHit || _lifeTimeEndTime >= Time.time - _lifeTimeAfterHit;
+        public bool IsValid => !_isHit || _lifeTimeEndTime >= Time.time - _lifeTimeAfterHit || _creationTime >= Time.time - _totalLifeTime;
 
         public int OwnerId => _ownerId; 
         public int Damage => _damage;
@@ -39,8 +45,11 @@ namespace Game.Scripts
         public float lifeTimeAfterHit => _lifeTimeAfterHit;
         public float NextSpawnDelay => _nextSpawnDelay;
 
-        void OnCollisionEnter(Collision bump)
+        void OnTriggerEnter(Collider bump)
         {
+            if (!_layerMask.HasLayer(bump.gameObject.layer))
+                return;
+
             _isHit = true;
             _lifeTimeEndTime = Time.time + _lifeTimeAfterHit;
             _rigidbody.velocity = Vector3.zero;
@@ -60,6 +69,7 @@ namespace Game.Scripts
             base.Enable();
 
             _isHit = false;
+            _creationTime = Time.time;
             _lifeTimeEndTime = -1;
             _rigidbody.velocity = Vector3.zero;
         }
@@ -75,6 +85,7 @@ namespace Game.Scripts
         public override void Disable()
         {
             _isHit = false;
+            _creationTime = -1;
             _lifeTimeEndTime = -1;
             _rigidbody.velocity = Vector3.zero;
 

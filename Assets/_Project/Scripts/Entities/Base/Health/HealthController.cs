@@ -8,12 +8,28 @@ namespace Game.Scripts
         [SerializeField] [Range(0, 1000)] private float _maxHealth = 150;
         [SerializeField] [Range(0, 1)] private float _armor = 0.5f;
 
+        [Space]
+
+        [SerializeField] private LayerMask _layerMask = LayerMask.GetMask();
+
         private float _health;
 
         public float MaxHealth => _maxHealth;
         public float Health => _health;
 
         public float Armor => _armor;
+
+        void OnTriggerEnter(Collider bump)
+        {
+            if (!_layerMask.HasLayer(bump.gameObject.layer))
+                return;
+
+            var damageDealer = bump.gameObject.GetComponent<IDamageDealer>();
+            if (damageDealer == null || damageDealer.OwnerId == id)
+                return;
+
+            Damage(damageDealer.Damage);
+        }
 
         public override void Enable()
         {

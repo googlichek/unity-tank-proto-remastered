@@ -13,6 +13,8 @@ namespace Game.Scripts
             base.Init();
 
             priority = TickPriority.High;
+
+            _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         }
 
         public void LoadScene(int sceneIndex)

@@ -1,8 +1,8 @@
 ﻿namespace Game.Scripts
 {
-    public class IdlePlayerNode : BaseEntityNode<PlayerController, States>
+    public class IdleEnemyNode : BaseEntityNode<EnemyController, States>
     {
-        public IdlePlayerNode(PlayerController owner, States state) : base(owner, state)
+        public IdleEnemyNode(EnemyController owner, States state) : base(owner, state)
         {
         }
 
@@ -13,7 +13,6 @@
 
         protected override void UpdateNodeState()
         {
-            GameManager.Instance.ScoreManager.ResetScore();
         }
     }
 }
