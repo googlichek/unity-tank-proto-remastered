@@ -14,13 +14,6 @@ namespace Game.Scripts
                 NextState = States.Dead;
         }
 
-        public override void Exit(States to)
-        {
-            base.Exit(to);
-
-            GameManager.Instance.ScoreManager.ScorePoints(Owner.ScorePoints);
-        }
-
         protected override void UpdateNodeState()
         {
             HandleMovement();

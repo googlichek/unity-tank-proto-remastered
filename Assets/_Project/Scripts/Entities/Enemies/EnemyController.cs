@@ -15,6 +15,8 @@ namespace Game.Scripts
         private HealthController _healthController;
         private BodyDamageDealer _damageDealer;
 
+        private AudioSource _audioSource;
+
         public GameObject GameObject => gameObject;
         public ResourceType Type => _type;
         public bool IsValid => _healthController.Health > 0;
@@ -23,6 +25,8 @@ namespace Game.Scripts
         public MovementController MovementController => _movementController;
         public HealthController HealthController => _healthController;
         public BodyDamageDealer DamageDealer => _damageDealer;
+
+        public AudioSource AudioSource => _audioSource;
 
         public int ScorePoints => _scorePoints;
 
@@ -34,6 +38,8 @@ namespace Game.Scripts
             _movementController = GetComponent<MovementController>();
             _healthController = GetComponent<HealthController>();
             _damageDealer = GetComponent<BodyDamageDealer>();
+
+            _audioSource = GetComponent<AudioSource>();
 
             AttachComponent(_stateMachineController);
             AttachComponent(_movementController);

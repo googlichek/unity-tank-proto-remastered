@@ -21,7 +21,6 @@ namespace Game.Scripts
         [Space]
 
         [SerializeField] [Range(0, 10)] private float _totalLifeTime = 5f;
-        [SerializeField] [Range(0, 10)] private float _lifeTimeAfterHit = 0.3f;
         [SerializeField] [Range(0, 10)] private float _nextSpawnDelay = 0.25f;
 
         private Rigidbody _rigidbody;
@@ -30,19 +29,17 @@ namespace Game.Scripts
         private int _ownerId;
 
         private float _creationTime;
-        private float _lifeTimeEndTime;
 
         private bool _isHit;
 
         public GameObject GameObject => gameObject;
         public ResourceType Type => _type;
-        public bool IsValid => !_isHit || _lifeTimeEndTime >= Time.time - _lifeTimeAfterHit || _creationTime >= Time.time - _totalLifeTime;
+        public bool IsValid => !_isHit || _creationTime >= Time.time - _totalLifeTime;
 
         public int OwnerId => _ownerId; 
         public int Damage => _damage;
 
         public int LaunchForce => _launchForce;
-        public float lifeTimeAfterHit => _lifeTimeAfterHit;
         public float NextSpawnDelay => _nextSpawnDelay;
 
         void OnTriggerEnter(Collider bump)
@@ -51,7 +48,6 @@ namespace Game.Scripts
                 return;
 
             _isHit = true;
-            _lifeTimeEndTime = Time.time + _lifeTimeAfterHit;
             _rigidbody.velocity = Vector3.zero;
             _audioSource.Play();
         }
@@ -70,7 +66,6 @@ namespace Game.Scripts
 
             _isHit = false;
             _creationTime = Time.time;
-            _lifeTimeEndTime = -1;
             _rigidbody.velocity = Vector3.zero;
         }
 
@@ -86,7 +81,6 @@ namespace Game.Scripts
         {
             _isHit = false;
             _creationTime = -1;
-            _lifeTimeEndTime = -1;
             _rigidbody.velocity = Vector3.zero;
 
             base.Disable();
