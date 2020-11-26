@@ -26,6 +26,7 @@ namespace Game.Scripts
             base.Enable();
 
             PlayClip(_stageClip);
+            Loop(true);
         }
 
         public void PlayClip(AudioClip clip)
@@ -33,6 +34,11 @@ namespace Game.Scripts
             _audioSource.Pause();
             _audioSource.clip = clip;
             _audioSource.Play();
+        }
+
+        public void Loop(bool shouldLoop)
+        {
+            _audioSource.loop = shouldLoop;
         }
     }
 }

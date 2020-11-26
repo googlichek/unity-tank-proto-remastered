@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace Game.Scripts
 {
-    /// <summary>
-    /// Sub-components of game objects should be inherited from this.
-    /// </summary>
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private GameObject _rewired = null;
