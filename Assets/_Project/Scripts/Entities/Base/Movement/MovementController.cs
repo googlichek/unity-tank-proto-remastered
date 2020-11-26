@@ -5,21 +5,21 @@ namespace Game.Scripts
     public class MovementController : TickComponent, IMovement
     {
         [Header("Movement Variables")]
-        [SerializeField] [Range(0, 100)] private float _movementSpeed = 0f;
-        [SerializeField] [Range(0, 100)] private float _rotationSpeed = 0f;
+        [SerializeField] [Range(0, 100)] protected float movementSpeed = 0f;
+        [SerializeField] [Range(0, 100)] protected float rotationSpeed = 0f;
 
         [Header("Obstacle Detection Variables")]
-        [SerializeField] [Range(0, 3)] private float _castHeight = 1;
-        [SerializeField] [Range(0, 10)] private float _rayDistance = 4;
-        [SerializeField] [Range(0, 1)] private float _sphereRadius = 0.5f;
-        [SerializeField] private LayerMask _layerMask = LayerMask.GetMask();
+        [SerializeField] [Range(0, 3)] protected float castHeight = 1;
+        [SerializeField] [Range(0, 10)] protected float rayDistance = 4;
+        [SerializeField] [Range(0, 1)] protected float sphereRadius = 0.5f;
+        [SerializeField] protected LayerMask layerMask = LayerMask.GetMask();
 
-        public float MovementSpeed => _movementSpeed;
-        public float RotationSpeed => _rotationSpeed;
+        public float MovementSpeed => movementSpeed;
+        public float RotationSpeed => rotationSpeed;
 
-        public void Move(float value)
+        public virtual void Move(float value)
         {
-            var offset = new Vector3(0, 0, value * _movementSpeed) * Time.deltaTime;
+            var offset = new Vector3(0, 0, value * movementSpeed) * Time.deltaTime;
             if (offset.IsEqual(Vector3.zero))
                 return;
 
@@ -27,9 +27,9 @@ namespace Game.Scripts
                 transform.Translate(offset);
         }
 
-        public void Rotate(float value)
+        public virtual void Rotate(float value)
         {
-            var offset = new Vector3(0f, value * _rotationSpeed, 0f) * Time.deltaTime;
+            var offset = new Vector3(0f, value * rotationSpeed, 0f) * Time.deltaTime;
 
             if (offset.IsEqual(Vector3.zero))
                 return;
@@ -39,12 +39,12 @@ namespace Game.Scripts
 
         private bool CheckIfMovementIsPossible(float deltaZ)
         {
-            var rayOrigin = new Vector3(transform.position.x, _castHeight, transform.position.z);
+            var rayOrigin = new Vector3(transform.position.x, castHeight, transform.position.z);
 
             var ray = deltaZ < 0 ? new Ray(rayOrigin, -transform.forward) : new Ray(rayOrigin, transform.forward);
 
-            var isHit = Physics.SphereCast(ray, _sphereRadius, out var hitTarget, _rayDistance, _layerMask);
-            return !isHit || !(hitTarget.distance <= _rayDistance);
+            var isHit = Physics.SphereCast(ray, sphereRadius, out var hitTarget, rayDistance, layerMask);
+            return !isHit || !(hitTarget.distance <= rayDistance);
         }
     }
 }

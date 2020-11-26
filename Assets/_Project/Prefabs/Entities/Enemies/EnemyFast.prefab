@@ -282,15 +282,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1305833228614934}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f20a99041bfc5649a929afae02eb414, type: 3}
+  m_Script: {fileID: 11500000, guid: e3fd86ec58daf404493a5abf75dc6f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
-  _rotationSpeed: 75
-  _castHeight: 1
-  _rayDistance: 4
-  _sphereRadius: 0.5
-  _layerMask:
+  movementSpeed: 4
+  rotationSpeed: 75
+  castHeight: 1
+  rayDistance: 4
+  sphereRadius: 0.5
+  layerMask:
     serializedVersion: 2
     m_Bits: 1280
 --- !u!114 &3490661438736174724

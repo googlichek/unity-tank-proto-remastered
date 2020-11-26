@@ -510,12 +510,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f20a99041bfc5649a929afae02eb414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
-  _rotationSpeed: 100
-  _castHeight: 1
-  _rayDistance: 4
-  _sphereRadius: 0.5
-  _layerMask:
+  movementSpeed: 5
+  rotationSpeed: 100
+  castHeight: 1
+  rayDistance: 4
+  sphereRadius: 0.5
+  layerMask:
     serializedVersion: 2
     m_Bits: 1280
 --- !u!114 &9097663592932657595
