@@ -34,7 +34,7 @@ namespace Game.Scripts
 
         public GameObject GameObject => gameObject;
         public ResourceType Type => _type;
-        public bool IsValid => !_isHit || _creationTime >= Time.time - _totalLifeTime;
+        public bool IsValid => !_isHit && _creationTime >= Time.time - _totalLifeTime;
 
         public int OwnerId => _ownerId; 
         public int Damage => _damage;

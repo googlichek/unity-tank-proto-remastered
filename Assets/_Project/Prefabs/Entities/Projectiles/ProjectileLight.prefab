@@ -227,6 +227,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1280
   _damage: 30
-  _launchForce: 700
-  _lifeTimeAfterHit: 0.3
+  _launchForce: 750
+  _totalLifeTime: 5
   _nextSpawnDelay: 0.25
