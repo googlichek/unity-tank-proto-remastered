@@ -21,6 +21,7 @@ namespace Game.Scripts
         private SceneLoadingManager _sceneLoadingManager;
         private ScoreManager _scoreManager;
         private UIManager _uiManager;
+        private AudioManager _audioManager;
 
         private int _instanceCounter;
         private int _tick;
@@ -30,6 +31,7 @@ namespace Game.Scripts
         public SceneLoadingManager SceneLoadingManager => _sceneLoadingManager;
         public ScoreManager ScoreManager => _scoreManager;
         public UIManager UIManager => _uiManager;
+        public AudioManager AudioManager => _audioManager;
 
         public int Tick => _tick;
 
@@ -42,6 +44,7 @@ namespace Game.Scripts
             _sceneLoadingManager = GetComponent<SceneLoadingManager>();
             _scoreManager = GetComponent<ScoreManager>();
             _uiManager = GetComponent<UIManager>();
+            _audioManager = GetComponent<AudioManager>();
         }
 
         private void OnEnable()

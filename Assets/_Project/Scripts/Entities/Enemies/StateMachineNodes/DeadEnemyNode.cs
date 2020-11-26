@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Game.Scripts
+﻿namespace Game.Scripts
 {
     public class DeadEnemyNode : BaseEntityNode<EnemyController, States>
     {
