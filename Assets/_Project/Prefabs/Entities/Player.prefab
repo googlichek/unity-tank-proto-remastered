@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6267990571107343316}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CameraArn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6267990571340641842}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ProjectileStartPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 6267990571760322780}
   - component: {fileID: 6267990571760322781}
   - component: {fileID: 6267990571760322782}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 6267990571769606966}
   - component: {fileID: 6267990571769606964}
   - component: {fileID: 6267990571769606965}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: PrimaryWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 6267990571907604793}
   - component: {fileID: 6267990571907604791}
   - component: {fileID: 6267990571907604792}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SecondaryWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 7815255178242264869}
   - component: {fileID: 5451357843582553928}
   - component: {fileID: 8588343060610867353}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -532,9 +532,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 250
   _armor: 0.5
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 257
 --- !u!114 &7815255178242264869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +545,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 500
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1280
 --- !u!114 &5451357843582553928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6267990572831300156}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: FirearmsCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

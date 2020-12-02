@@ -8,6 +8,7 @@
         Water = 4,
         UI = 5,
         Character = 8,
-        Environment = 10
+        Environment = 10,
+        Player = 15
     }
 }

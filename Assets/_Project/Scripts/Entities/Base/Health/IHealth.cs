@@ -2,6 +2,8 @@
 {
     public interface IHealth
     {
+        int Id { get; }
+
         float MaxHealth { get; }
         float Health { get; }
 

@@ -307,9 +307,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 50
   _armor: 0
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 257
 --- !u!114 &1325387261507454182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +320,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 50
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!1 &1345240695850638
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,6 +50,12 @@ namespace Game.Scripts
             _isHit = true;
             _rigidbody.velocity = Vector3.zero;
             _audioSource.Play();
+
+            var damageReciever = bump.gameObject.GetComponent<IHealth>();
+            if (damageReciever == null || damageReciever.Id == _ownerId)
+                return;
+
+            damageReciever.Damage(Damage);
         }
 
         public override void Init()
